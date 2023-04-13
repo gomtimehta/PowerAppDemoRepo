@@ -33,7 +33,7 @@ on:
       BUILD_ENVIRONMENT_URL: 
         description: 'Build environment url.'
         type: string
-        default: 'https://orgebfabec1.crm.dynamics.com'
+        default: 'https://org16190393.crm.dynamics.com'
       CLIENT_ID: 
         description: 'The client id'
         type: string
