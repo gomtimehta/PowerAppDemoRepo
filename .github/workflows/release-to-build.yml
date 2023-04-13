@@ -44,7 +44,7 @@ on:
         default: '36c0dca9-f22c-4e0c-aa83-c311fcba0830'
 
 jobs:
-  convert-to-managed:
+  export-as-managed:
     runs-on: windows-latest
     # or you can say runs-on: ubuntu-latest
     env:
@@ -80,8 +80,8 @@ jobs:
         name: managedSolutions
         path: ${{ inputs.solution_shipping_folder}}/
 
-  release-to-staging:
-    needs: [ convert-to-managed ]
+  release-to-build:
+    needs: [ export-as-managed ]
     runs-on: windows-latest
     env:
       RUNNER_DEBUG: 1
