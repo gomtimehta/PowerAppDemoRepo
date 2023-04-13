@@ -3,7 +3,7 @@ name: Release to build
 # convert solution to managed (using a build PowerPlatform environment for the conversion)
 # upload the solution to the GitHub artifacts and deploy to the build environment
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs: 
       #Do Not change these values
       #Values are set by the caller
