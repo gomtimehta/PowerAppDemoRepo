@@ -33,7 +33,7 @@ on:
       BUILD_ENVIRONMENT_URL: 
         description: 'Build environment url.'
         type: string
-        default: 'https://org16190393.crm.dynamics.com'
+        default: 'https://orgebfabec1.crm.dynamics.com'
       CLIENT_ID: 
         description: 'The client id'
         type: string
@@ -61,6 +61,17 @@ jobs:
         solution-folder: ${{ inputs.solution_source_folder}}/${{ inputs.solution_name }}
         solution-file: ${{ inputs.solution_outbound_folder}}/${{ inputs.solution_name }}.zip
         solution-type: Unmanaged
+
+    - name: Import solution as unmanaged to dev env
+      uses: microsoft/powerplatform-actions/import-solution@v0
+      with:
+        environment-url: ${{inputs.DEV_ENVIRONMENT_URL}}
+        app-id: ${{inputs.CLIENT_ID}}
+        client-secret: ${{ secrets.CLIENT_SECRET }}
+        tenant-id: ${{inputs.TENANT_ID}}
+        solution-file: ${{ inputs.solution_outbound_folder}}/${{ inputs.solution_name }}.zip
+        force-overwrite: true
+        publish-changes: true
 
     - name: Export solution as managed
       uses: microsoft/powerplatform-actions/export-solution@v0
